@@ -61,3 +61,9 @@ In Supabase → Authentication → URL Configuration:
 - [ ] Reports do not automatically create strikes.
 - [ ] Admin-only functions are checked in the database, not just the UI.
 - [ ] School policies and food-safety rules are approved before launch.
+
+
+## Admin suspension controls
+For an existing database, run `admin-suspension-migration.sql` in Supabase SQL Editor **after** `schema.sql`. Deploy the updated `script.js` and `styles.css`. Sign in to `admin.html` using an account whose `profiles.role` was securely assigned to `admin`. Under User Management, search for a user, review their history, enter a documented reason and click **Suspend for 30 days**. To reverse it, use **Reinstate user** with a reason. Both actions are checked in PostgreSQL and written to the audit log.
+
+Test using non-production accounts and have a trusted adult review the SQL and school rules before any real student use. Full strike issuance and appeals controls are still not implemented.
